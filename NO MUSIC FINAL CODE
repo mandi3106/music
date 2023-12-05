@@ -1,0 +1,349 @@
+import random
+import pygame
+#INSTALL PYGAME IF IT GIVES NO MUSIC
+##!pip install pygame
+def main():
+    
+    pygame.init()
+    startmenu = pygame.mixer.Sound("C:\\Users\\mandi\\Downloads\\startmenu.mp3") ###REPLACE WITH YOUR PATH FOR startmenu.mp3
+    startmenu.play()
+    
+    
+    MaxHP = 20
+    HP = MaxHP
+    while True:
+        print("Name the fallen human:")
+        Name = input()
+        print("Are you sure? yes or no")
+        CheckName = input()
+
+        if CheckName == "yes":
+            print(f"Welcome, {Name}")  
+            break  
+        elif CheckName == "no":
+            print("Choose another name.")
+        else:
+            print("Invalid input. Try again.")
+
+    WeaponList = ["a", "b", "c"]
+    ArmourList = ["a", "b", "c"]
+    
+    PlayerHealth = 20
+    FroggitHealth = 20
+    PlayerDead = 0
+    FroggitDead = 0
+    FroggitSpared = 0
+    FroggitCalmed = 0
+    FroggitAngered = 0
+    FroggitBurnTime = 0
+    BurnEnabled = 0
+    DumbLevel = 0
+    
+    startmenu.stop()
+
+    pygame.init()
+    fallendown = pygame.mixer.Sound("C:\\Users\\mandi\\Downloads\\fallendown.mp3") ##REPLACE WITH YOUR VERSION OF FALLENDOWN
+    fallendown.play()
+
+    print("(IMPORTANT! READ THIS! if the box is just blank with no yes/no or a/b/c/d options, just press enter with the blank box)")
+
+    print("ALSO PLEASE yes and no have to be lowercase!! capitals will not work!")
+    print("\nYou wake up, your head throbbing... you vaguely remember falling down Mount Ebott after wandering on a hike..")
+    input("Looking around, you notice you're in a dark cave. below you is a patch of golden flowers, which have somehow cushioned your fall.")
+    
+    while True:
+        FallingRoom = input("Get up? (yes/no)")
+
+        if FallingRoom == "yes":
+            print("Good.")
+            input("Standing up, you ignore your aching bones and bruised limbs.")
+            print("Stretching your back, you look around for an exit to the room before spotting a door at the end of a long hallway.")
+            break 
+        elif FallingRoom == "no":
+            print("You lie there...")
+            print("Try and get up again?")
+        else:
+            print("YES OR NO")
+
+    input("You walk over to the large door, noticing a strange symbol above it.")
+    fallendown.stop()
+    pygame.init()
+    flowey = pygame.mixer.Sound("C:\\Users\\mandi\\Downloads\\flowey.mp3") ##REPLACE WITH YOUR VERSION OF FLOWEY
+    flowey.play()
+    input("As you enter, you see a small, seemingly harmless sunflower in the distance.")
+    input("As you step closer, it starts talking:")
+    input("???: 'Howdy! I'm Flowey, Flowey the Flower.'")
+    input("Flowey: 'You're new to the Underground, aren't cha?'")
+    input("'I guess I'll have to show you how things work around here!'")
+    input("You see a red heart in front of you.")
+    input("'That is your soul. Your SOUL starts of weak, but you can upgrade it with LV.'")
+    input("You interrupt, confusion in your voice. 'What is LV??'")
+    input("'What's LV? Why, it's LOVE of course! You want some LOVE, don'tcha?'")
+    input("'Down here, LOVE is shared through little white friendliness pellets.'")
+    
+    while True:
+        DodgeBullets = input("It throws some white ovals at you. Will you dodge them? (yes/no)")
+
+        if DodgeBullets == "yes":
+            print("'You know what's going on here, don't you.'")
+            input("'To think you were them is stupid of me.'")
+            break  
+        elif DodgeBullets == "no":
+            print("The ovals hit you and you are hurt.")
+            HP = 1
+            print("HP =", HP)
+            break 
+        else:
+            print("INVALID. PUT YES OR NO")
+            
+        
+    input("'You idiot!'")
+    print("his previously cute smile grows into a angry, devious grin.")
+    input("'Who would pass up an opportunity like this, huh?'")
+    print("a circle of those white, deadly pellets surrounds your SOUL.")
+    input("'Cya, kiddo. DIE!'")
+    input("Ovals surround you, what will you do? Raising your arms as an attempt to shield yourself, you suddenly hear rapid footsteps and look up!")
+    input("A flame appears in front of you and hits Flowey.")
+    flowey.stop()
+    fallendown.play()
+    input("A figure resembling a goat walks up to you.")
+    input("???: 'What a miserable nasty creature torturing such poor innocent youth.'")
+    input("'Oh, my child, I am Toriel, caretaker of the RUINS.'")
+    if HP == 1:
+        input("Toriel: 'I'm sorry that wretched creature hurt you, here, let me heal you.'")
+        HP = MaxHP
+        print("HP =", HP)
+        
+    input("Toriel: 'Come, and I will take you to my home.'")
+
+    while True:
+        FollowToriel = input("Follow Toriel? (yes/no): ")
+
+        if FollowToriel == "yes":
+            input("'Well then, let's get going!'")
+            break 
+        elif FollowToriel == "no":
+            print("You really should follow her, it seems quite dangerous out here and you're pretty much defenseless...")
+        else:
+            print("INPUT YES OR NO")
+
+    input("You follow Toriel into a room with a yellow star.")
+    input("As you step towards it, you feel a warmth in your 'SOUL'. Your soul has been fully healed! (HP = 20)")
+    HP = MaxHP
+
+    print("Next to the star, you see a variety of items laid out. She seems to have seen humans like you before...")
+    print("Toriel: 'Please, you must take one of each to prepare. The ruins can be dangerous for a human like you...'")
+    print("You wonder what she meant by dangerous, but decide not to question it.")
+    print("You look down at the weapons and think about which to pick.")
+    print("Option A: Stick - Only being tiny, it won't do much, but it's better than nothing.")
+    print("Option B: Burnt Pan - Hot to the touch. Lifting it, it feels heavy enough to knock someone out.")
+    print("Option C: Toy Knife - Made of foam. It'll do next to nothing, but it might scare someone.")
+    print("Which weapon do you want? A, B or C?")
+    WeaponChoice = input().lower()
+    if WeaponChoice not in WeaponList:
+        WeaponChoice = random.choice(WeaponList)
+        print("You can't decide which weapon to choose.")
+        print("The goat speaks again.")
+        print("Toriel: 'I understand if you're too overwhelmed to choose. Here, take option", WeaponChoice.upper())
+        DumbLevel += 1
+    if WeaponChoice == "a":
+        PlayerMinDamage = 2
+        PlayerMaxDamage = 5
+        print("You pick up the stick.")
+    elif WeaponChoice == "b":
+        PlayerMinDamage = 5
+        PlayerMaxDamage = 7
+        BurnEnabled = 1
+        print("You pick up the pan.")
+    elif WeaponChoice == "c":
+        PlayerMinDamage = 0
+        PlayerMaxDamage = 1
+        print("You pick up the toy knife.")
+    print()
+    print("Toriel: 'Good, now pick something to defend yourself with.'")
+    print("You take a closer look at the armour in front of you.")
+    print("Option A: Faded Ribbon - A red ribbon that has long lost its lustre. You'd look cute enough to not attack with it on.")
+    print("Option B: Manly Bandana - A small bandana that has some abs drawn on. With it on, you'll gain protection from its sheer manliness.")
+    print("Option C: Bandage - An old, worn piece of cloth that won't protect you from anything. Picture the type of wrappings that wrestlers wrap around their knuckles before a fight.")
+    print("Which armour do you want? A, B or C?")
+    ArmourChoice = input().lower()
+    if ArmourChoice not in ArmourList:
+        ArmourChoice = random.choice(ArmourList)
+        if DumbLevel == 1:
+            print("*no thoughts, head empty*")
+            print("Toriel: 'Please, my child, you won't make it far in the Underground if you keep acting so indecisive!", ArmourChoice.upper())
+        else:
+            print("You can't decide what piece of armour to choose.")
+            print("Toriel: 'Alright, I'll pick. Have", ArmourChoice.upper())
+        DumbLevel += 1
+    if ArmourChoice == "a":
+        PlayerArmourLevel = 1
+        print("You put on the ribbon. It makes you feel so cute!")
+    elif ArmourChoice == "b":
+        PlayerArmourLevel = 2
+        print("You put on the bandana. You feel tougher already!")
+    elif ArmourChoice == "c":
+        PlayerArmourLevel = 0
+        print("You apply the bandage. It's a little old but it still wraps around your fist nicely!")
+    print()
+    print("you notice a monster candy in the corner of the room.")
+    print("Do you want to pick it up? (yes/no)")
+    ChooseItem = input().lower()
+    if ChooseItem == "yes":
+        print("You pick up the candy and put it in your pocket.")
+        MonsterCandy = 1
+    else:
+        print("You decide not to.")
+        MonsterCandy = 0
+    print()
+    print("Toriel: 'You're doing great so far, my child. Now, follow me, you should be much more ready now.")
+    print("'Ready for what?' You wonder, following her through the next few rooms. You open your mouth to ask her how to leave this underground place, when suddenly-!")
+    print("Froggit bounces towards you!")
+    print("It prepares for a fight!")
+    while "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyways. Because bees don't care what humans think is impossible.":
+        if FroggitBurnTime >= 1:
+            print("Froggit was burnt and lost 2 HP.")
+            FroggitHealth -= 2
+            FroggitBurnTime -= 1
+            if FroggitHealth <= 0:
+                FroggitDead = 1
+                break
+            if FroggitBurnTime < 1:
+                print("Froggit stopped burning.")
+        print()
+        print("HP =", PlayerHealth)
+        print()
+        print("Use FIGHT, ACT, ITEM or MERCY")
+        BattleCommand = input().lower()
+        if BattleCommand == "fight":
+            PlayerDamage = int(random.randint(PlayerMinDamage, PlayerMaxDamage))
+            FroggitHealth -= PlayerDamage
+            if PlayerDamage <= 0:
+                print("Your weapon did no damage!")
+            else:
+                print("Froggit lost", PlayerDamage, "HP.")
+            if BurnEnabled == 1 and FroggitBurnTime <= 0 and int(random.randint(1, 2)) == 1:
+                FroggitHealth -= 2
+                print("The red-hot pan began to burn Froggit. It lost 2 HP.")
+                FroggitBurnTime = 1
+            if FroggitHealth <= 0:
+                FroggitDead = 1
+                break
+        elif BattleCommand == "act":
+            print("What do you want to do? INSPECT, FLIRT or THREAT")
+            ActCommand = input().lower()
+            if ActCommand == "inspect":
+                print("You closely inspect Froggit and learn some stats.")
+                print()
+                print("Species = Frog")
+                print("Height = 2'5")
+                print("Gender = Frog")
+                if FroggitCalmed == 1:
+                    print("Froggit is hopping around happily, lowkey just wanting to end the fight now.")
+                else:
+                    print("Froggit is staring directly at you, probably inspecting you as well.")
+                print("HP =", FroggitHealth)
+            elif ActCommand == "flirt":
+                if FroggitAngered == 1:
+                    print("Your flirt calmed Froggit, but it wasn't enough to woo it.")
+                    FroggitAngered = 0
+                elif FroggitCalmed == 1:
+                    print("Toriel: 'My child, please stop flirting with the Froggit-'")
+                else:
+                    print("Froggit blushes!")
+                    print("Froggit doesn't want to fight you anymore.")
+                    FroggitCalmed = 1
+            elif ActCommand == "threat":
+                if FroggitCalmed == 1:
+                    print("Froggit blinked, visibly confused at the change of heart, but it didn't get angry.")
+                    FroggitCalmed = 0
+                elif FroggitAngered == 0:
+                    print("Froggit looks like it got angrier!")
+                    print("Froggit will now deal more damage!")
+                    FroggitAngered = 1
+                else:
+                    print("Froggit is too angry to listen to any more of your insults.")
+            else:
+                print("No time to do anything because Froggit is ready to fight!")
+        elif BattleCommand == "item":
+            if MonsterCandy > 0:
+                if MonsterCandy == 1:
+                    print("You have one candy.")
+                else:
+                    print("You have", MonsterCandy, "candies. nuts :)")
+                print("Do you want to eat a Monster Candy?")
+                ItemCommand = input().lower()
+                if ItemCommand == "yes":
+                    PlayerHealth += 10
+                    if PlayerHealth > 20:
+                        PlayerHealth = 20
+                    MonsterCandy -= 1
+                    print("You ate the candy and now have", PlayerHealth, "HP.")
+                else:
+                    print("You decide not to use the candy.")
+            else:
+                print("You have no items to use.")
+        elif BattleCommand == "mercy":
+            print("do you want to SPARE Froggit or FLEE from the fight?")
+            MercyCommand = input().lower()
+            if MercyCommand == "spare":
+                if FroggitCalmed == 1:
+                    print("Froggit was happy that things didn't escalate further.")
+                    FroggitSpared = 1
+                    break
+                else:
+                    print("You'll need to calm it first!")
+            elif MercyCommand == "flee":
+                print("You realise that, in fight simulators, there is nowhere to run to.")
+            else:
+                print("No time to run because Froggit is ready to fight!")
+        else:
+            print("While you were thinking, Froggit attacked!")
+        if FroggitCalmed == 0:
+            FroggitAttackPos = int(random.randint(1, 2))
+            FroggitDamage = int(random.randint(2, 5))
+            if FroggitAngered == 1:
+                FroggitDamage *= 2
+            print("Froggit gets ready to attack you. Will you dodge LEFT or RIGHT?")
+            DodgeCommand = input().lower()
+            if DodgeCommand == "left":
+                PlayerDodgePos = 1
+            elif DodgeCommand == "right":
+                PlayerDodgePos = 2
+            else:
+                PlayerDodgePos = 3
+                print("While you were choosing which way to go, Froggit attacked!")
+            if FroggitAttackPos == PlayerDodgePos or PlayerDodgePos == 3:
+                FroggitDamage -= PlayerArmourLevel
+                PlayerHealth -= FroggitDamage
+                print("You lost", FroggitDamage, "HP.")
+                if PlayerHealth == 0 or PlayerHealth < 0:
+                    PlayerDead = 1
+                    break
+            elif FroggitAttackPos != PlayerDodgePos:
+                print("You dodged the attack.")
+        else:
+            print("Froggit looks like it's waiting for you to do something.")
+    if PlayerDead == 1:
+        print()
+        print("HP = 0")
+        print()
+        print("GAME OVER")
+        print()
+        print("???: 'Next time, try choosing between offence and defence.'")
+    elif FroggitDead == 1:
+        print()
+        print("YOU WIN?")
+        print()
+        if FroggitAngered == 1:
+            print("???: 'At least you were defending yourself...'")
+        elif FroggitCalmed == 1:
+            print("Froggit looks happy! You made his day!!")
+        else:
+            print("Toriel: 'Why would you kill an innocent creature! What did it ever do to you?!'")
+    elif FroggitSpared == 1:
+        print()
+        print("YOU WIN!")
+        print()
+        print("Toriel: 'Well done for being a good person!'")
+ 
