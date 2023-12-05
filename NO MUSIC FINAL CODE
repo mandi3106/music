@@ -346,4 +346,4 @@ def main():
         print("YOU WIN!")
         print()
         print("Toriel: 'Well done for being a good person!'")
- 
+ main()
