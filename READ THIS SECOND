@@ -1,0 +1,6 @@
+also, the music files need to be manually replaced on your computer since (from what i've found), there is no way for it to work on both of our computers.
+so basically, download all of the music files.
+i will label in the code where the files need to be replaced, which will be the only psyeudocodes in the code for your sake of finding it
+additionally, please put double \\ instead of just \ so that it runs smoothly.
+example:
+C:\\Users\\mandi\\Downloads\\ruins_music.wav
