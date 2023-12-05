@@ -1,0 +1,31 @@
+#i wanted to ask the question, Is there bias between mercy and fighting when the computer simulates the game?
+#though the computer here isn't simulating the game itself, it's deciding whether it should spare or kill Froggit.
+#in each game, though completely randomized, the computer always chooses one option more than the other, sometimes in a significant amount.
+
+
+import random
+
+def simulate_choices():
+    choices = []
+
+    for _ in range(100):  # Simulate 100 times
+        # All your existing code goes here
+        choice = random.choice(["fight","mercy"])  # Example random choices
+        choices.append(choice)
+
+    return choices
+
+result = simulate_choices()
+
+# Count occurrences of each choice
+choice_count = {}
+for choice in result:
+    if choice in choice_count:
+        choice_count[choice] += 1
+    else:
+        choice_count[choice] = 1
+
+# Print the count of each choice
+print("Number of times each action was chosen in 100 simulations:")
+for choice, count in choice_count.items():
+    print(f"{choice}: {count}")
